@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, render_template
-from transformers import BlipProcessor, BlipForConditionalGeneration
+from transformers import AutoProcessor, AutoModelForCausalLM
 from PIL import Image
 from flask_cors import CORS
 
@@ -7,9 +7,9 @@ app = Flask(__name__)
 CORS(app)
 
 # Load the Hugging Face model and processor
-model_name = "Salesforce/blip-image-captioning-base"
-processor = BlipProcessor.from_pretrained(model_name)
-model = BlipForConditionalGeneration.from_pretrained(model_name)
+model_name = "MoonDream/moondream-captioning"  # Replace with the actual model name
+processor = AutoProcessor.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
 
 @app.route('/')
 def home():
