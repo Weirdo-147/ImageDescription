@@ -1,0 +1,7 @@
+tokenizers==0.13.3
+Flask==2.3.2
+transformers==4.32.0
+Pillow
+flask-cors==3.0.9
+torch
+gunicorn==20.1.0
